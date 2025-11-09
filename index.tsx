@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import bg from './assets/bg.jpg';
+import bg from ''./src/assets/bg.jpg';
 
 const hotspots = [
   { 
