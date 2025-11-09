@@ -28,10 +28,10 @@ const hotspots = [
     style: { top: '20%', left: '78%', width: '15%', height: '40%' }
   },
   {
-    id: 'shield',
-    title: 'Mediaspelare (NVIDIA Shield)',
-    description: 'Detta är en mediaspelare, lite som en Apple TV eller en modernare video. Den används för att titta på filmer och serier från appar som Netflix. Du kan starta den och välja [...]
-    style: { top: '65%', left: '77%', width: '18%', height: '10%' }
+  id: 'shield',
+  title: 'Mediaspelare (NVIDIA Shield)',
+  description: 'Detta är en mediaspelare, lite som en Apple TV eller en modernare video. Den används för att titta på filmer och serier från appar som Netflix. Du kan starta den och välja [...]',
+  style: { top: '65%', left: '77%', width: '18%', height: '10%' }
   },
   {
     id: 'irbridge',
