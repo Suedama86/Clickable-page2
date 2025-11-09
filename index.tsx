@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import bg from './assets/bg.jpg';
 
 const hotspots = [
   { 
     id: 'crowpanel', 
     title: 'Hjärnan i Systemet (CrowPanel)',
-    description: 'Detta är hjärnan i hela systemet. Tänk på den som en universal-fjärrkontroll med en pekskärm. Härifrån kan du styra alla andra apparater som är anslutna, utan att behöva leta efter olika fjärrkontroller.',
+    description: 'Detta är hjärnan i hela systemet. Tänk på den som en universal-fjärrkontroll med en pekskärm. Härifrån kan du styra alla andra apparater som är anslutna, utan att behöva[...]',
     style: { top: '23%', left: '33%', width: '34%', height: '55%' }
   },
   { 
     id: 'tv', 
     title: 'TV:n',
-    description: 'Detta är din vanliga TV. Kontrollpanelen kan sätta på och stänga av den, byta kanal eller välja vilken apparat som ska visas på skärmen, till exempel PlayStation eller mediaspelaren.',
+    description: 'Detta är din vanliga TV. Kontrollpanelen kan sätta på och stänga av den, byta kanal eller välja vilken apparat som ska visas på skärmen, till exempel PlayStation eller med[...]',
     style: { top: '15%', left: '5%', width: '28%', height: '25%' }
   },
   { 
     id: 'optv', 
     title: 'Ljudsystemet (OPTV)',
-    description: 'Den här svarta lådan är hemmabiosystemet. Den tar emot ljudet från TV:n, spelkonsolen eller när du spelar musik och skickar ut det till högtalarna för att ge ett fylligt och bra ljud, nästan som på bio.',
+    description: 'Den här svarta lådan är hemmabiosystemet. Den tar emot ljudet från TV:n, spelkonsolen eller när du spelar musik och skickar ut det till högtalarna för att ge ett fylligt o[...]',
     style: { top: '51%', left: '10%', width: '23%', height: '12%' }
   },
   { 
@@ -29,13 +30,13 @@ const hotspots = [
   {
     id: 'shield',
     title: 'Mediaspelare (NVIDIA Shield)',
-    description: 'Detta är en mediaspelare, lite som en Apple TV eller en modernare video. Den används för att titta på filmer och serier från appar som Netflix. Du kan starta den och välja vad du vill se från kontrollpanelen.',
+    description: 'Detta är en mediaspelare, lite som en Apple TV eller en modernare video. Den används för att titta på filmer och serier från appar som Netflix. Du kan starta den och välja [...]
     style: { top: '65%', left: '77%', width: '18%', height: '10%' }
   },
   {
     id: 'irbridge',
     title: 'Översättaren (A1-IR bridge)',
-    description: 'Denna lilla dosa är en smart "översättare". Den tar emot de moderna signalerna från kontrollpanelen och omvandlar dem till gamla hederliga fjärrkontrollsignaler som TV:n och ljudsystemet förstår.',
+    description: 'Denna lilla dosa är en smart "översättare". Den tar emot de moderna signalerna från kontrollpanelen och omvandlar dem till gamla hederliga fjärrkontrollsignaler som TV:n och[...]',
     style: { top: '78%', left: '79%', width: '14%', height: '10%' }
   },
   {
@@ -71,9 +72,9 @@ const hotspots = [
 ];
 
 const App = () => {
-  const [activeHotspot, setActiveHotspot] = useState(null);
+  const [activeHotspot, setActiveHotspot] = useState<any | null>(null);
 
-  const handleHotspotClick = (hotspot) => {
+  const handleHotspotClick = (hotspot: any) => {
     setActiveHotspot(hotspot);
   };
 
@@ -86,11 +87,12 @@ const App = () => {
       <h1 style={styles.title}>Utforska Hemma-systemet</h1>
       <p style={styles.instructions}>Klicka på de pulserande rutorna i bilden för att läsa vad de gör.</p>
       <div style={styles.imageWrapper}>
-        <img src="https://i.imgur.com/8o9mZ2e.jpeg" alt="En översikt av ett smart hem-system med en central kontrollpanel, TV, ljudsystem, PS5 och andra enheter." style={styles.mainImage} />
+        <img src={bg} alt="En översikt av ett smart hem-system med en central kontrollpanel, TV, ljudsystem, PS5 och andra enheter." style={styles.mainImage} />
         {hotspots.map((spot) => (
           <button
             key={spot.id}
             aria-label={`Information om ${spot.title}`}
+            className="hotspot"
             style={{ ...styles.hotspot, ...spot.style }}
             onClick={() => handleHotspotClick(spot)}
           />
@@ -110,7 +112,7 @@ const App = () => {
   );
 };
 
-const styles = {
+const styles: any = {
   container: {
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
     textAlign: 'center',
@@ -231,7 +233,6 @@ styleSheet.innerText = `
 `;
 document.head.appendChild(styleSheet);
 
-
 const container = document.getElementById('root');
-const root = createRoot(container);
+const root = createRoot(container!);
 root.render(<App />);
